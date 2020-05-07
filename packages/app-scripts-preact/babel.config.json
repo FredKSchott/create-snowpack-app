@@ -1,0 +1,10 @@
+{
+  "presets": [["@babel/preset-react", {
+    "pragma": "h"
+  }], "@babel/preset-typescript"],
+  "plugins": [
+    "@babel/plugin-syntax-import-meta",
+    "@snowpack/babel-plugin-asset-import",
+    "babel-plugin-macros"
+  ]
+}

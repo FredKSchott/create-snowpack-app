@@ -2,8 +2,8 @@ import { h } from "preact";
 import { render } from "@testing-library/preact";
 import App from "./App";
 
-test("renders learn react link", () => {
+test("renders learn preact link", () => {
   const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
+  const linkElement = getByText(/learn preact/i);
   expect(linkElement).toBeInTheDocument();
 });

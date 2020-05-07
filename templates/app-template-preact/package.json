@@ -18,7 +18,7 @@
     "csz": "^1.2.0"
   },
   "devDependencies": {
-    "@snowpack/app-scripts-react": "^0.3.0",
+    "@snowpack/app-scripts-preact": "^0.1.0",
     "@testing-library/jest-dom": "^5.5.0",
     "@testing-library/preact": "^1.0.2",
     "jest": "^25.4.0",

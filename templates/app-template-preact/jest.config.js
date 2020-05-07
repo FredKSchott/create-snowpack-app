@@ -1,3 +1,3 @@
 module.exports = {
-  ...require("@snowpack/app-scripts-react/jest.config.js")(),
+  ...require("@snowpack/app-scripts-preact/jest.config.js")(),
 };

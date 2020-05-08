@@ -17,7 +17,8 @@ module.exports = babelJest.createTransformer({
       },
     }],
     [require.resolve("@babel/preset-react"), {
-      pragma: "h"
+      pragma: "h",
+      pragmaFrag: "Fragment"
     }],
     require.resolve("@babel/preset-typescript"),
   ],

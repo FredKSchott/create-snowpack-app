@@ -5,8 +5,9 @@ const cwd = process.cwd();
 const isTS = fs.existsSync(path.join(cwd, "tsconfig.json"));
 
 const scripts = {
-  "mount:public": "mount public --to /",
+  "mount:public": "mount public --to .",
   "mount:web_modules": "mount web_modules",
+  "mount:src": "mount src --to _dist_",
 };
 
 if (isTS) {
@@ -21,10 +22,10 @@ if (
   fs.existsSync(path.join(cwd, "babel.config.cjs")) ||
   fs.existsSync(path.join(cwd, "babel.config.mjs"))
 ) {
-  scripts[buildId] = "babel --filename test.js"; // TODO: revert
+  scripts[buildId] = "babel --filename $FILE";
 } else {
   const bundledConfig = path.join(__dirname, "babel.config.json");
-  scripts[buildId] = `babel --filename test.js --config-file ${bundledConfig}`;
+  scripts[buildId] = `babel --filename $FILE --config-file ${bundledConfig}`;
 }
 
 if (fs.existsSync(path.join(cwd, "postcss.config.js"))) {

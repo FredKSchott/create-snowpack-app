@@ -23,7 +23,7 @@ module.exports = {
       module.exports = {
         __esModule: true,
         default: ${assetFilename},
-        ReactComponent: React.forwardRef(function ${componentName}(props, ref) {
+        ReactComponent: forwardRef(function ${componentName}(props, ref) {
           return createElement('svg', Object.assign({ }, props, {
             ref: ref,
           }), ${assetFilename});

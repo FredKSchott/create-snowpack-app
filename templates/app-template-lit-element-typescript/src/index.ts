@@ -1,4 +1,5 @@
 import { customElement, LitElement, property, html, css } from "lit-element";
+import { classMap } from "lit-html/directives/class-map.js";
 
 @customElement("my-app")
 export class App extends LitElement {
@@ -30,7 +31,7 @@ export class App extends LitElement {
 
     render() {
         return html`
-            <div class="wrapper"><button @click="${this.handleClick}">${this.counter}</button></div>
+            <div class="${classMap({ wrapper: true, even: this.counter % 2 === 0 })}"><button @click="${this.handleClick}">${this.counter}</button></div>
         `
     }
 }

@@ -8,6 +8,7 @@ const scripts = {
   "mount:public": "mount public --to .",
   "mount:web_modules": "mount web_modules",
   "mount:src": "mount src --to _dist_",
+  "build:svg": "cat"
 };
 
 if (isTS) {
@@ -34,8 +35,6 @@ if (fs.existsSync(path.join(cwd, "postcss.config.js"))) {
   const bundledConfig = path.join(__dirname, "postcss.config.js");
   scripts["build:css"] = `postcss --config ${bundledConfig}`;
 }
-
-scripts["build:svg"] = "cat";
 
 module.exports = {
   scripts,

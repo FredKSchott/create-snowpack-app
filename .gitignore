@@ -1,6 +1,7 @@
 .build
 node_modules
 .DS_Store
+.idea
 
 templates/*/template/build
 templates/*/template/package-lock.json

@@ -1,16 +1,10 @@
 {
+  "extends": "@snowpack/app-scripts-lit-element/tsconfig.base.json",
   "include": ["src", "types"],
   "exclude": ["node_modules"],
   "compilerOptions": {
-    "module": "esnext",
-    "target": "esnext",
-    "moduleResolution": "node",
-    "noEmit": true,
-    "strict": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
     "baseUrl": "./",
     "paths": { "*": ["web_modules/.types/*"] }
   }

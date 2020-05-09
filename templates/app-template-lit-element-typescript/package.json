@@ -14,12 +14,8 @@
     "build": "snowpack build",
     "test": "echo \"This template does not include a test runner by default.\" && exit 1"
   },
-  "webDependencies": {
-    "lit-html": "^1.2.1"
-  },
   "devDependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.8.3",
-    "@babel/plugin-proposal-decorators": "^7.8.3",
+    "@snowpack/app-scripts-lit-element": "^0.3.4",
     "lit-html": "^1.2.1",
     "parcel-bundler": "^1.12.4",
     "snowpack": "^2.0.0-0",

@@ -1,0 +1,15 @@
+{
+  "name": "@snowpack/app-scripts-lit-element",
+  "version": "0.3.4",
+  "main": "snowpack.config.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-decorators": "^7.8.3",
+    "@babel/preset-typescript": "7.9.0"
+  },
+  "gitHead": "YYY"
+}

@@ -2,6 +2,7 @@
 node_modules
 .DS_Store
 .idea
+.vscode
 
 templates/*/template/build
 templates/*/template/package-lock.json

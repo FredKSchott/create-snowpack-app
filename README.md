@@ -16,7 +16,7 @@ npx create-snowpack-app new-dir --template @snowpack/app-template-NAME [--use-ya
 - @snowpack/app-template-lit-element [HELP WANTED]
 - [@snowpack/app-template-lit-element-typescript](/templates/app-template-lit-element-typescript)
 - @snowpack/app-template-htm [HELP WANTED]
-
+- @snowpack/app-template-eleventy [HELP WANTED]
 ## Featured Community Templates
 
 - None yet!

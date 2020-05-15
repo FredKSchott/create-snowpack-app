@@ -20,6 +20,10 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.
 Your app is ready to be deployed!
 
-### Q: What about Eject?
+## Directives
 
-No eject needed! Snowpack guarantees zero lock-in, and CSA strives for the same.
+In case you need to add a directive like `classMap` you should add the extension to the import:
+
+```
+import { classMap } from "lit-html/directives/class-map.js";
+```

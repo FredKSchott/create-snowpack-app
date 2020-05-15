@@ -14,17 +14,15 @@
     "build": "snowpack build",
     "test": "tsc && karma start"
   },
+  "dependencies": {
+    "lit-element": "^2.3.1",
+    "lit-html": "^1.2.1"
+  },
   "devDependencies": {
-    "@open-wc/testing-karma": "3.3.19",
     "@snowpack/app-scripts-lit-element": "^0.3.4",
     "deepmerge": "4.2.2",
-    "karma": "^5.0.5",
-    "lit-html": "^1.2.1",
     "parcel-bundler": "^1.12.4",
     "snowpack": "^2.0.0-0",
     "typescript": "^3.8.3"
-  },
-  "dependencies": {
-    "lit-element": "^2.3.1"
   }
 }

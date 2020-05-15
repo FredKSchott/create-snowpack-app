@@ -15,24 +15,17 @@ export class App extends LitElement {
                 height: 100vh;
             }
             
-            button {
-                font-size: x-large;
-            }
-            
-            .even {
-                background-color: rebeccapurple;
+            h1 {
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
             }
         `
     }
 
-    handleClick() {
-        this.counter += 1
-    }
-
     render() {
         return html`
-            <h1>Snowpack Lit Element + TypeScript Starter</h1>
-            <div class="${classMap({ wrapper: true, even: this.counter % 2 === 0 })}"><button @click="${this.handleClick}">${this.counter}</button></div>
+            <div class="wrapper">
+                <h1>Snowpack Lit Element + TypeScript Starter</h1>
+            </div>
         `
     }
 }

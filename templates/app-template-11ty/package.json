@@ -1,6 +1,6 @@
 {
-  "name": "@snowpack/app-template-blank",
-  "version": "0.4.1",
+  "name": "@snowpack/app-template-11ty",
+  "version": "0.4.2",
   "license": "MIT",
   "keywords": [
     "csa-template"
@@ -18,6 +18,7 @@
     "canvas-confetti": "^1.2.0"
   },
   "devDependencies": {
+    "@11ty/eleventy": "^0.10.0",
     "snowpack": "^2.0.0-0"
   }
 }

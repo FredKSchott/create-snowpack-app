@@ -5,15 +5,14 @@ const cwd = process.cwd();
 const isTS = fs.existsSync(path.join(cwd, "tsconfig.json"));
 
 const scripts = {
-  "mount:public": "mount public --to .",
+  "mount:public": "mount public --to /",
   "mount:web_modules": "mount web_modules",
-  "mount:src": "mount src --to _dist_",
-  "build:svg": "cat"
+  "mount:src": "mount src --to /_dist_",
 };
 
 if (isTS) {
-  scripts["lintall:tsc"] = "tsc --noEmit";
-  scripts["lintall:tsc::watch"] = "$1 --watch";
+  scripts["run:tsc"] = "tsc --noEmit";
+  scripts["run:tsc::watch"] = "$1 --watch";
 }
 
 const buildId = isTS ? "build:ts,tsx,js,jsx" : "build:js,jsx";

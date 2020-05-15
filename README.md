@@ -12,11 +12,10 @@ npx create-snowpack-app new-dir --template @snowpack/app-template-NAME [--use-ya
 - [@snowpack/app-template-svelte](/templates/app-template-svelte)
 - [@snowpack/app-template-vue](/templates/app-template-vue)
 - [@snowpack/app-template-preact](/templates/app-template-preact)
-- @snowpack/app-template-lit-html [HELP WANTED]
+- [@snowpack/app-template-11ty](/templates/app-template-11ty)
 - @snowpack/app-template-lit-element [HELP WANTED]
 - [@snowpack/app-template-lit-element-typescript](/templates/app-template-lit-element-typescript)
-- @snowpack/app-template-htm [HELP WANTED]
-- @snowpack/app-template-eleventy [HELP WANTED]
+
 ## Featured Community Templates
 
 - None yet!

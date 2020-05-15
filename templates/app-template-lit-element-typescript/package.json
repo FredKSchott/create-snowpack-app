@@ -12,7 +12,7 @@
     "prepare": "snowpack",
     "start": "snowpack dev",
     "build": "snowpack build",
-    "test": "tsc && karma start"
+    "test": "echo \"This template does not include a test runner by default.\" && exit 1"
   },
   "dependencies": {
     "lit-element": "^2.3.1",

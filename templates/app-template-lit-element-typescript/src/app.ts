@@ -1,22 +1,20 @@
-import { customElement, LitElement, property, html, css } from "lit-element";
-import { classMap } from "lit-html/directives/class-map.js";
+import { customElement, LitElement, html, css } from "lit-element";
 
 @customElement("my-app")
 export class App extends LitElement {
-    @property({ type: Number })
-    counter = 0
-
     static get styles() {
         return css`
             .wrapper {
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                flex-direction: column;
                 height: 100vh;
+                background-color: #2196F3;
             }
-            
-            h1 {
-                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+
+            .link {
+                color: white;
             }
         `
     }
@@ -25,6 +23,17 @@ export class App extends LitElement {
         return html`
             <div class="wrapper">
                 <h1>Snowpack Lit Element + TypeScript Starter</h1>
+                <p>
+                    Edit <code>src/app.ts</code> and save to reload.
+                </p>
+                <a
+                  class="link"
+                  href="https://lit-element.polymer-project.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                    Learn Lit Element
+                </a>
             </div>
         `
     }

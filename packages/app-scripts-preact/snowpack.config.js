@@ -21,4 +21,5 @@ module.exports = {
   installOptions: {
     installTypes: isTS,
   },
+  plugins: ["@prefresh/snowpack"]
 };

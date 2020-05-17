@@ -36,7 +36,7 @@ function validateArgs(args) {
   const targetDirectoryRelative = _[2];
   const targetDirectory = path.resolve(process.cwd(), targetDirectoryRelative);
   if (fs.existsSync(targetDirectory) && !force) {
-    console.error(`${chalk.red("[ERROR]")} ${targetDirectory} already exists. Use \`--force\` flag to overwrite files.`);
+    console.error(`${chalk.red("[ERROR]")} ${targetDirectory} already exists. Use \`--force\` to overwrite this directory.`);
     process.exit(1);
   }
   return {

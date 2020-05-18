@@ -8,7 +8,6 @@ module.exports = function plugin(config, options) {
         filename: filePath,
         cwd: process.cwd(),
         ast: false,
-        sourceMaps: false,
       });
 
       return { result: result.code };

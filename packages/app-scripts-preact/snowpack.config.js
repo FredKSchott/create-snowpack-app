@@ -21,6 +21,6 @@ module.exports = {
   },
   plugins: [
     "@snowpack/plugin-babel",
-    "./prefresh.js"
+    "@prefresh/snowpack"
   ]
 };

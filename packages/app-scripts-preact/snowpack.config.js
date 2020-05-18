@@ -16,11 +16,7 @@ if (isTS) {
 }
 
 module.exports = {
-  scripts: {
-    "mount:public": "mount public --to /",
-    "mount:web_modules": "mount web_modules",
-    "mount:src": "mount src --to /_dist_",
-  },
+  scripts,
   plugins: [
     "@snowpack/plugin-babel",
     "@prefresh/snowpack"

@@ -120,7 +120,7 @@ if (requiredVersion < 10) {
     path.join(targetDirectory, "package.json"),
     `{"name": "my-csa-app"}`
   );
-  await execa("npm", ["install", template, "--ignore-scripts"], {
+  await execa(useYarn ? "yarn" : "npm", [useYarn ? "add" : "install", template, "--ignore-scripts"], {
     cwd: targetDirectory,
   });
   await copy(installedTemplate, targetDirectory);

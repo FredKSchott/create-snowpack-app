@@ -12,7 +12,7 @@
     "@babel/preset-env": "^7.9.5",
     "@babel/preset-react": "^7.9.4",
     "@babel/preset-typescript": "^7.9.0",
-    "@prefresh/webpack": "^0.1.0",
+    "@prefresh/snowpack": "0.1.0",
     "@snowpack/babel-plugin-package-import": "^0.6.1",
     "@snowpack/plugin-babel": "^0.6.1",
     "babel-jest": "^25.4.0",

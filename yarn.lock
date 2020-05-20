@@ -2254,10 +2254,23 @@
     "@parcel/utils" "^1.11.0"
     physical-cpu-count "^2.0.0"
 
-"@prefresh/core@^0.6.1":
+"@prefresh/core@0.6.1", "@prefresh/core@^0.6.1":
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/@prefresh/core/-/core-0.6.1.tgz#3a2be2303a0726a10e76a9f572751ae47526a054"
   integrity sha512-VOri+qPL/6k8n7b3O29nKeIRVfBEw0Ol3k8hwQxb1Q2nVQ3uyiLP0nhsFDKiit/cLUd9HqLn00061gqZwOdkRQ==
+
+"@prefresh/snowpack@0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@prefresh/snowpack/-/snowpack-0.1.0.tgz#bae53074cdee0275490ee746714caf5f11362252"
+  integrity sha512-8c51BX9DstVzxgjuPblTs89L1LprrbYRHuUFSo54sqT9pF32VedWScLylS/X30Dlw66NAsNE4+CODxvB+mljiw==
+  dependencies:
+    "@prefresh/core" "0.6.1"
+    "@prefresh/utils" "0.1.1"
+
+"@prefresh/utils@0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@prefresh/utils/-/utils-0.1.1.tgz#35b7f7bd9a5248458c1ee4ccd7d1b10b05c370bd"
+  integrity sha512-x5pPJBlDss8o3OeK+uNHaBiKev+/6IWfTv1e7+a1NcvtxIgNxTlNWezWEW4JfLJIf+7Gi3FSqGVRTCKRAzT05g==
 
 "@rollup/plugin-alias@^3.0.1":
   version "3.1.0"

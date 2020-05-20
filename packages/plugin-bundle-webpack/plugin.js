@@ -75,7 +75,7 @@ module.exports = function plugin(config, args) {
               ],
             },
             {
-              test: /\.(svg|png|jpe?g|gif)$/, //We can expand this list of importable files
+              test: /\.*/, //We can expand this list of importable files
               use: [
                 {
                   loader: "file-loader",

@@ -75,7 +75,7 @@ module.exports = function plugin(config, args) {
               ],
             },
             {
-              test: /\.*$/,
+              test: /.*/,
               exclude: [/\.jsx?$/, /\.s?css$/],
               use: [
                 {

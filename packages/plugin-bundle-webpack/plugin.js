@@ -75,7 +75,8 @@ module.exports = function plugin(config, args) {
               ],
             },
             {
-              test: /\.*/, //We can expand this list of importable files
+              test: /\.*$/,
+              exclude: [/\.jsx?$/, /\.s?css$/],
               use: [
                 {
                   loader: "file-loader",

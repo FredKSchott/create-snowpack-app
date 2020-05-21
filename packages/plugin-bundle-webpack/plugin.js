@@ -18,17 +18,31 @@ async function compilePromise(webpackConfig) {
   });
 }
 
+function chain(object, keys) {
+  let cur = object;
+  for (const key of keys) {
+    if (Object.keys(cur).includes(key)) {
+      cur = cur[key];
+    } else {
+      return undefined;
+    }
+  }
+  return cur;
+}
+
 module.exports = function plugin(config, args) {
   return {
     async bundle({ srcDirectory, destDirectory, log, jsFilePaths }) {
       let homepage = config.homepage || "/";
-      let fallback = config.devOptions?.fallback || "index.html";
+      let fallback = chain(config, ["devOptions", "fallback"]) || "index.html";
 
-      const jsOutputPattern = args?.outputPatterns?.js || "js/bundle-[hash].js";
+      const jsOutputPattern =
+        chain(args, ["outputPatterns", "js"]) || "js/bundle-[hash].js";
       const cssOutputPattern =
-        args?.outputPatterns?.css || "css/style-[hash].css";
+        chain(args, ["outputPatterns", "css"]) || "css/style-[hash].css";
       const assetsOutputPattern =
-        args?.outputPatterns?.assets || "assets/[name]-[hash].[ext]";
+        chain(args, ["outputPatterns", "assets"]) ||
+        "assets/[name]-[hash].[ext]";
 
       if (!jsOutputPattern.endsWith(".js")) {
         throw new Error("Output Pattern for JS must end in .js");
@@ -154,10 +168,13 @@ module.exports = function plugin(config, args) {
 
       if (!args.skipFallbackOutput) {
         let assetFiles =
-          stats.toJson({
-            assets: false,
-            hash: true,
-          })?.entrypoints?.main?.assets || [];
+          chain(
+            stats.toJson({
+              assets: false,
+              hash: true,
+            }),
+            ["entrypoints", "main", "assets"]
+          ) || [];
 
         let jsFile = assetFiles.find((d) => d.endsWith(".js"));
         let cssFile = assetFiles.find((d) => d.endsWith(".css"));

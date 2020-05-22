@@ -6,7 +6,6 @@ const isTS = fs.existsSync(path.join(cwd, "tsconfig.json"));
 
 const scripts = {
   "mount:public": "mount public --to /",
-  "mount:web_modules": "mount web_modules",
   "mount:src": "mount src --to /_dist_",
 };
 
@@ -17,12 +16,9 @@ if (isTS) {
 
 module.exports = {
   scripts,
+  plugins: ["@snowpack/plugin-babel", "@prefresh/snowpack"],
   devOptions: {},
   installOptions: {
     installTypes: isTS,
   },
-  plugins: [
-    "@snowpack/plugin-babel",
-    "@prefresh/snowpack"
-  ]
 };

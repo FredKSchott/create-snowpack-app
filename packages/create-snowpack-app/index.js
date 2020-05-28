@@ -165,10 +165,13 @@ if (requiredVersion < 10) {
   console.log(`  ${useYarn ? "yarn" : "npm"} install`);
   console.log(`  ${chalk.dim("Install your dependencies.")}`);
   console.log(`  ${chalk.dim("We already ran this one for you!")}`);
+  console.log(``);
   console.log(`  ${useYarn ? "yarn" : "npm"} start`);
   console.log(`  ${chalk.dim("Start your development server.")}`);
+  console.log(``);
   console.log(`  ${useYarn ? "yarn" : "npm run"} build`);
   console.log(`  ${chalk.dim("Build your website for production.")}`);
+  console.log(``);
   console.log(`  ${useYarn ? "yarn" : "npm"} test`);
   console.log(`  ${chalk.dim("Run your tests.")}`);
   console.log(``);

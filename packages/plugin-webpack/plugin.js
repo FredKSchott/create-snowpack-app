@@ -212,13 +212,13 @@ module.exports = function plugin(config, args) {
         let cssFile = assetFiles.find((d) => d.endsWith(".css"));
 
         //Now that webpack is done, modify the html file to point to the newly compiled resources
-        scriptEl.src = path.join(homepage, jsFile);
+        scriptEl.src = path.join(homepage, jsFile).replace(/\\/g, '/');
         scriptEl.removeAttribute("type");
 
         if (cssFile) {
           let csslink = dom.window.document.createElement("link");
           csslink.setAttribute("rel", "stylesheet");
-          csslink.href = path.join(homepage, cssFile);
+          csslink.href = path.join(homepage, cssFile).replace(/\\/g, '/');
           dom.window.document.querySelector("head").append(csslink);
         }
 

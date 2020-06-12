@@ -33,6 +33,9 @@ describe("npx create-snowpack-app", () => {
         path.resolve(__dirname, "testdata", template, "snowpack.config.json")
       );
       expect(snowpackConfigExists).toBe(true);
+
+      // run the template's tests
+      await execa("yarn", ['test'], { cwd: path.join(TEMPLATES_DIR, template) });
     });
   });
 });

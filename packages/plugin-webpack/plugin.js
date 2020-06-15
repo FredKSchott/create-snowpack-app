@@ -43,7 +43,8 @@ module.exports = function plugin(config, args) {
     defaultBuildScript: "bundle:*",
     async bundle({ srcDirectory, destDirectory, log, jsFilePaths }) {
       // config.homepage is legacy, remove in future version
-      let baseUrl = config.buildOptions.baseUrl || config.homepage || "/";
+      const buildOptions = config.buildOptions || {};
+      let baseUrl = buildOptions.baseUrl || config.homepage || "/";
       const tempBuildManifest = JSON.parse(
         await fs.readFileSync(path.join(cwd, "package.json"), {
           encoding: "utf-8",

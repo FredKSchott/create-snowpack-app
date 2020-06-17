@@ -28,8 +28,8 @@ module.exports = function plugin(config, args) {
   }
   // Validate: args.outputPattern
   args.outputPattern = args.outputPattern || {};
-  const jsOutputPattern = args.outputPattern.js || "js/[name].[hash].js";
-  const cssOutputPattern = args.outputPattern.css || "css/[name].[hash].css";
+  const jsOutputPattern = args.outputPattern.js || "js/[name].[contenthash].js";
+  const cssOutputPattern = args.outputPattern.css || "css/[name].[contenthash].css";
   const assetsOutputPattern =
     args.outputPattern.assets || "assets/[name]-[hash].[ext]";
   if (!jsOutputPattern.endsWith(".js")) {
@@ -80,7 +80,7 @@ module.exports = function plugin(config, args) {
         const parsedPath = path.parse(src);
         const name = parsedPath.name;
         if (entries.name !== undefined) {
-          throw new Error(`Duplictate script with name ${name}`);
+          throw new Error(`Duplicate script with name ${name}.`);
       }
         entries[name] = {path: path.join(srcDirectory, src), script: el};
       }

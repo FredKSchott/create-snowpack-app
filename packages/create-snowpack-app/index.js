@@ -171,7 +171,7 @@ if (requiredVersion < 10) {
       case "pnpm":
         return execa("pnpm", ["install"], npmInstallOptions);
       default:
-        break;
+        return new Error("unspecified installer");
     }
   }
 
@@ -214,7 +214,10 @@ if (requiredVersion < 10) {
     formatCommand(`${installer} start`, "Start your development server.")
   );
   console.log(
-    formatCommand(`${installer} build`, "Build your website for production.")
+    formatCommand(
+      `${installer} run build`,
+      "Build your website for production."
+    )
   );
   console.log(formatCommand(`${installer} test`, "Run your tests."));
   console.log(``);

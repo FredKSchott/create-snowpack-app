@@ -157,15 +157,24 @@ if (requiredVersion < 10) {
     cwd: targetDirectory,
     stdio: "inherit",
   };
+
   function installProcess(packageManager) {
-    return packageManager === "npm"
-      ? execa("npm", ["install", "--loglevel", "error"], npmInstallOptions)
-      : packageManager === "yarn"
-      ? execa("yarn", ["--silent"], npmInstallOptions)
-      : packageManager === "pnpm"
-      ? execa("pnpm", ["install"], npmInstallOptions)
-      : new Error("unspecified installer");
+    switch (packageManager) {
+      case "npm":
+        return execa(
+          "npm",
+          ["install", "--loglevel", "error"],
+          npmInstallOptions
+        );
+      case "yarn":
+        return execa("yarn", ["--silent"], npmInstallOptions);
+      case "pnpm":
+        return execa("pnpm", ["install"], npmInstallOptions);
+      default:
+        break;
+    }
   }
+
   const npmInstallProcess = installProcess(installer);
   npmInstallProcess.stdout && npmInstallProcess.stdout.pipe(process.stdout);
   npmInstallProcess.stderr && npmInstallProcess.stderr.pipe(process.stderr);

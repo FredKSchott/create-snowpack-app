@@ -169,7 +169,11 @@ if (requiredVersion < 10) {
       case "yarn":
         return execa("yarn", ["--silent"], npmInstallOptions);
       case "pnpm":
-        return execa("pnpm", ["install"], npmInstallOptions);
+        return execa(
+          "pnpm",
+          ["install", "--reporter=silent"],
+          npmInstallOptions
+        );
       default:
         throw new Error("Unspecified package installer.");
     }

@@ -171,7 +171,7 @@ if (requiredVersion < 10) {
       case "pnpm":
         return execa("pnpm", ["install"], npmInstallOptions);
       default:
-        return new Error("unspecified installer");
+        throw new Error("Unspecified package installer.");
     }
   }
 

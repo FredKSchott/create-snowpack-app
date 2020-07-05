@@ -1,0 +1,15 @@
+{
+  "name": "@snowpack/plugin-sass",
+  "version": "1.0.0",
+  "main": "plugin.js",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {},
+  "dependencies": {
+    "autoprefixer": "^9.8.4",
+    "cssnano": "^4.1.10",
+    "node-sass": "^4.14.1"
+  }
+}

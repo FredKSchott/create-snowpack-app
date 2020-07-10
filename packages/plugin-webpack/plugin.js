@@ -243,6 +243,7 @@ module.exports = function plugin(config, args) {
             for (const occurrence of entries[name].occurrences) {
               const originalScriptEl = occurrence.script;
               const dom = occurrence.dom;
+              const head = dom.window.document.querySelector("head");
 
               for (const jsFile of jsFiles) {
                 const scriptEl = dom.window.document.createElement("script");
@@ -253,7 +254,7 @@ module.exports = function plugin(config, args) {
                 const linkEl = dom.window.document.createElement("link");
                 linkEl.setAttribute("rel", "stylesheet");
                 linkEl.href = path.posix.join(baseUrl, cssFile);
-                dom.window.document.querySelector("head").append(linkEl);
+                head.append(linkEl);
               }
               originalScriptEl.remove();
             }

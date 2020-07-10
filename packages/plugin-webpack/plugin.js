@@ -229,45 +229,43 @@ module.exports = function plugin(config, args) {
         );
       }
 
-      if (!args.skipFallbackOutput) {
-        const entrypoints = stats.toJson({ assets: false, hash: true })
-          .entrypoints;
+      const entrypoints = stats.toJson({ assets: false, hash: true })
+        .entrypoints;
 
-        //Now that webpack is done, modify the html files to point to the newly compiled resources
-        Object.keys(entries).forEach((name) => {
-          if (entrypoints[name] !== undefined && entrypoints[name]) {
-            const assetFiles = entrypoints[name].assets || [];
-            const jsFiles = assetFiles.filter((d) => d.endsWith(".js"));
-            const cssFiles = assetFiles.filter((d) => d.endsWith(".css"));
+      //Now that webpack is done, modify the html files to point to the newly compiled resources
+      Object.keys(entries).forEach((name) => {
+        if (entrypoints[name] !== undefined && entrypoints[name]) {
+          const assetFiles = entrypoints[name].assets || [];
+          const jsFiles = assetFiles.filter((d) => d.endsWith(".js"));
+          const cssFiles = assetFiles.filter((d) => d.endsWith(".css"));
 
-            for (const occurrence of entries[name].occurrences) {
-              const originalScriptEl = occurrence.script;
-              const dom = occurrence.dom;
-              const head = dom.window.document.querySelector("head");
+          for (const occurrence of entries[name].occurrences) {
+            const originalScriptEl = occurrence.script;
+            const dom = occurrence.dom;
+            const head = dom.window.document.querySelector("head");
 
-              for (const jsFile of jsFiles) {
-                const scriptEl = dom.window.document.createElement("script");
-                scriptEl.src = path.posix.join(baseUrl, jsFile);
-                insertAfter(scriptEl, originalScriptEl);
-              }
-              for (const cssFile of cssFiles) {
-                const linkEl = dom.window.document.createElement("link");
-                linkEl.setAttribute("rel", "stylesheet");
-                linkEl.href = path.posix.join(baseUrl, cssFile);
-                head.append(linkEl);
-              }
-              originalScriptEl.remove();
+            for (const jsFile of jsFiles) {
+              const scriptEl = dom.window.document.createElement("script");
+              scriptEl.src = path.posix.join(baseUrl, jsFile);
+              insertAfter(scriptEl, originalScriptEl);
             }
+            for (const cssFile of cssFiles) {
+              const linkEl = dom.window.document.createElement("link");
+              linkEl.setAttribute("rel", "stylesheet");
+              linkEl.href = path.posix.join(baseUrl, cssFile);
+              head.append(linkEl);
+            }
+            originalScriptEl.remove();
           }
-        });
-
-        //And write our modified html files out to the destination
-        for (const [htmlFile, dom] of Object.entries(doms)) {
-            fs.writeFileSync(
-              path.join(destDirectory, htmlFile),
-              dom.serialize()
-            );
         }
+      });
+
+      //And write our modified html files out to the destination
+      for (const [htmlFile, dom] of Object.entries(doms)) {
+          fs.writeFileSync(
+            path.join(destDirectory, htmlFile),
+            dom.serialize()
+          );
       }
     },
   };

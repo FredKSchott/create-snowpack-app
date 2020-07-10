@@ -1,7 +1,6 @@
 const fs = require("fs");
 const glob = require("glob");
 const path = require("path");
-const util = require("util");
 const webpack = require("webpack");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserJSPlugin = require("terser-webpack-plugin");
@@ -10,8 +9,6 @@ const jsdom = require("jsdom");
 const CopyPlugin = require("copy-webpack-plugin");
 const { JSDOM } = jsdom;
 const cwd = process.cwd();
-
-const globAsync = util.promisify(glob);
 
 function insertAfter(newNode, existingNode) {
   existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling);
@@ -60,7 +57,7 @@ module.exports = function plugin(config, args) {
 
       // Get all html files from the output folder
       const pattern = srcDirectory + "/**/*.html";
-      const htmlFiles = (await globAsync(pattern))
+      const htmlFiles = glob.sync(pattern)
           .map(htmlPath => path.relative(srcDirectory, htmlPath));
 
       const doms = {};

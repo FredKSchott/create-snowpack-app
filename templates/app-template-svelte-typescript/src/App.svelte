@@ -1,5 +1,5 @@
 <script>
-	const message = 'Learn Svelte';
+	let message:string = 'Learn Svelte';
 </script>
 
 <style>

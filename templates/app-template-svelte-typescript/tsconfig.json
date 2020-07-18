@@ -20,7 +20,9 @@
     // Don't change these unless you know what you're doing.
     // See: https://github.com/microsoft/TypeScript/issues/25430
     "baseUrl": "./",
-    "paths": { "*": ["web_modules/.types/*"] }
+    "paths": { "*": ["web_modules/.types/*"] },
+
+    "types": ["svelte"]
   },
   "include": ["src", "types"],
   "exclude": ["node_modules"]

@@ -22,7 +22,7 @@
     "baseUrl": "./",
     "paths": { "*": ["web_modules/.types/*"] },
 
-    "types": ["svelte"]
+    "types": ["svelte", "jest", "@testing-library/jest-dom"]
   },
   "include": ["src", "types"],
   "exclude": ["node_modules"]

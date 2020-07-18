@@ -1,5 +1,5 @@
 <script>
-	let message:string = 'Learn Svelte';
+	let message:string = 'Learn Svelte with Typescript';
 </script>
 
 <style>

@@ -23,6 +23,7 @@
     "@types/jest": "^26.0.4",
     "jest": "^25.4.0",
     "snowpack": "^2.6.4",
+    "svelte-check": "^0.1.53",
     "svelte-preprocess": "^4.0.8",
     "typescript": "^3.9.6"
   },

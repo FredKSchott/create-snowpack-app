@@ -10,6 +10,7 @@ const readFolderAsync = util.promisify(glob);
 
 module.exports = function parcelBundlePlugin(config, options) {
   return {
+    name: "@snowpack/plugin-parcel",
     type: "bundle",
     defaultBuildScript: "bundle:*",
     async bundle({ srcDirectory, destDirectory, log, jsFilePaths }) {

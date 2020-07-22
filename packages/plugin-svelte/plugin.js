@@ -21,7 +21,9 @@ module.exports = function plugin(config, pluginOptions) {
   };
 
   return {
-    defaultBuildScript: "build:svelte",
+    name: "@snowpack/plugin-svelte",
+    input: [".svelte"],
+    output: [".js", ".css"],
     knownEntrypoints: ["svelte/internal"],
     async build({ contents, filePath }) {
       let codeToCompile = contents;
@@ -38,11 +40,11 @@ module.exports = function plugin(config, pluginOptions) {
         ...svelteOptions,
         filename: filePath,
       });
-      const result = { result: js && js.code };
-      if (!svelteOptions.css) {
-        result.resources = { css: css && css.code };
-      }
-      return result;
+
+      return {
+        ".js": js && js.code,
+        ".css": css && css.code,
+      };
     },
   };
 };

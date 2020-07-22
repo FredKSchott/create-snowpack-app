@@ -1,17 +1,19 @@
+const path = require("path");
 const babel = require("@babel/core");
 
 module.exports = function plugin(config, options) {
   return {
-    defaultBuildScript: "build:js,jsx,ts,tsx",
+    name: "@snowpack/plugin-babel",
+    input: [".js", ".jsx", ".ts", ".tsx"],
+    output: [".js"],
     async build({ contents, filePath, fileContents }) {
-      const result = await babel.transformAsync(contents || fileContents, {
+      const { code } = await babel.transformAsync(contents || fileContents, {
         filename: filePath,
         cwd: process.cwd(),
         ast: false,
         compact: false,
       });
-
-      return { result: result.code };
+      return { ".js": code }; // always return JS
     },
   };
 };

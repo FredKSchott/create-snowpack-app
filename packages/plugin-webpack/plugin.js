@@ -34,6 +34,7 @@ module.exports = function plugin(config, args) {
   }
 
   return {
+    name: "@snowpack/plugin-webpack",
     defaultBuildScript: "bundle:*",
     async bundle({ srcDirectory, destDirectory, log, jsFilePaths }) {
       // config.homepage is legacy, remove in future version
@@ -57,32 +58,38 @@ module.exports = function plugin(config, args) {
 
       // Get all html files from the output folder
       const pattern = srcDirectory + "/**/*.html";
-      const htmlFiles = glob.sync(pattern)
-          .map(htmlPath => path.relative(srcDirectory, htmlPath));
+      const htmlFiles = glob
+        .sync(pattern)
+        .map((htmlPath) => path.relative(srcDirectory, htmlPath));
 
       const doms = {};
       const entries = {};
       for (const htmlFile of htmlFiles) {
-          const dom = new JSDOM(
-            fs.readFileSync(path.join(srcDirectory, htmlFile))
-          );
+        const dom = new JSDOM(
+          fs.readFileSync(path.join(srcDirectory, htmlFile))
+        );
 
-          //Find all local script, use it as the entrypoint
-          const scripts = Array.from(dom.window.document.querySelectorAll("script"))
-            .filter((el) => el.type.trim().toLowerCase() === "module")
-            .filter((el) => !/^[a-zA-Z]+:\/\//.test(el.src));
+        //Find all local script, use it as the entrypoint
+        const scripts = Array.from(
+          dom.window.document.querySelectorAll("script")
+        )
+          .filter((el) => el.type.trim().toLowerCase() === "module")
+          .filter((el) => !/^[a-zA-Z]+:\/\//.test(el.src));
 
-          for (const el of scripts) {
-            const src = el.src.trim();
-            const parsedPath = path.parse(src);
-            const name = parsedPath.name;
-            if (!(name in entries)) {
-                entries[name] = { path: path.join(srcDirectory, src), occurrences: [] };
-            }
-            entries[name].occurrences.push({ script: el, dom });
+        for (const el of scripts) {
+          const src = el.src.trim();
+          const parsedPath = path.parse(src);
+          const name = parsedPath.name;
+          if (!(name in entries)) {
+            entries[name] = {
+              path: path.join(srcDirectory, src),
+              occurrences: [],
+            };
           }
+          entries[name].occurrences.push({ script: el, dom });
+        }
 
-          doms[htmlFile] = dom;
+        doms[htmlFile] = dom;
       }
 
       if (Object.keys(entries).length === 0) {
@@ -219,12 +226,12 @@ module.exports = function plugin(config, args) {
         console.log(
           stats.toString(
             extendedConfig.stats
-            ? extendedConfig.stats
-            : {
-              colors: true,
-              all: false,
-              assets: true,
-            }
+              ? extendedConfig.stats
+              : {
+                  colors: true,
+                  all: false,
+                  assets: true,
+                }
           )
         );
       }
@@ -262,10 +269,7 @@ module.exports = function plugin(config, args) {
 
       //And write our modified html files out to the destination
       for (const [htmlFile, dom] of Object.entries(doms)) {
-          fs.writeFileSync(
-            path.join(destDirectory, htmlFile),
-            dom.serialize()
-          );
+        fs.writeFileSync(path.join(destDirectory, htmlFile), dom.serialize());
       }
     },
   };

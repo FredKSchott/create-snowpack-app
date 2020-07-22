@@ -29,5 +29,5 @@ module.exports = function plugin(config, options) {
     }
   });
 
-  return {};
+  return { name: "@snowpack/plugin-dotenv", input: [], output: [] };
 };

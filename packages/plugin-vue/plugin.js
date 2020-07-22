@@ -4,7 +4,9 @@ const compiler = require("@vue/compiler-sfc");
 
 module.exports = function plugin(config, pluginOptions) {
   return {
-    defaultBuildScript: "build:vue",
+    name: '@snowpack/plugin-vue',
+    input: ['.vue'],
+    output: ['.js', '.css'],
     async build({ contents, filePath }) {
       const id = hashsum(filePath);
       const { descriptor, errors } = compiler.parse(contents, {

@@ -2,4 +2,5 @@
 
 All official templates and plugins have moved into the main Snowpack repository:
 
-https://github.com/pikapkg/snowpack/tree/master/packages/create-snowpack-app.
+- All templates: https://github.com/snowpackjs/snowpack/tree/master/create-snowpack-app
+- `create-snowpack-app` CLI: https://github.com/snowpackjs/snowpack/tree/master/create-snowpack-app/cli
